@@ -1,0 +1,46 @@
+Syntax:
+
+The words - predefined tokens are specified between " and ":
+
+Sintactical rules: (file Syntax.in)
+
+program ::= "KUTO" decllist ";" cmpdstmt
+
+decllist ::= declaration | declaration ";" decllist
+
+declaration ::= type IDENTIFIER
+
+type1 ::= "MBILI" | "NAMBARI" | "KAMBA" | "TABIA"
+
+arraydecl ::= "ORODHA" "[" nr "]" NAMBARI
+
+type  ::= type1|arraydecl
+
+cmpdstmt ::= "ANZA" stmtlist "MWISHO"
+
+stmtlist ::= stmt | stmt ";" stmtlist
+
+stmt ::= simplstmt | structstmt
+
+simplstmt ::= assignstmt | iostmt
+
+assignstmt ::= IDENTIFIER ">>" expression
+
+expression ::= expression ":)" term | expression ":(" term | term
+
+term ::= term "*" factor | term "/" factor | factor
+
+factor ::= "(" expression ")" | IDENTIFIER
+
+iostmt ::= "SOMA" "(" IDENTIFIER ")" | "ANDIKA" "(" IDENTIFIER ")"
+
+structstmt ::= ifstmt | forstmt
+
+ifstmt ::= "KAMA(" condition ")" stmt ["ZAIDI" stmt] "MKAMA"
+
+forstmt ::= "KWA(" stmtlist ")" stmt "MKWA"
+
+condition ::= expression RELATION expression
+
+RELATION ::= "-" | "->" | ">" | "<" | "+>" | "+"
+
