@@ -1,0 +1,6 @@
+3=52, 6=55, :)1=149, :(2=150, namba1=561, namba2=562, namba3=563, wastani=760, 
+The data structure for the Symbol Table: 
+It contains a hashtable implemented by me, which contains an array of strings. 
+The position in the array signals the token index, all other positions are null. For the hashing function I used the one presented at the course.
+The put method hashes the token, verifies if the position is empty or the token already exists and puts the token there. If it is not empty, it adds 1 to the index and tries again.
+The get method hashes the token, looks if the hashed position has the token. If not, it adds 1 to the position and tries again.

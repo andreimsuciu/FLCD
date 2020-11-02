@@ -1,4 +1,4 @@
-package lab;
+package ro.ubb;
 
 public class SymbolTable {
     private HashTable table;
@@ -13,5 +13,9 @@ public class SymbolTable {
             return table.put(token);
         }
         return position;
+    }
+
+    public HashTable getTable() {
+        return table;
     }
 }

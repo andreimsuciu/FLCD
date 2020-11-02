@@ -1,8 +1,12 @@
-package lab;
+package ro.ubb;
 
 public class HashTable {
     private final static int SIZE = 2053;
     String[] table;
+
+    public String[] getTable() {
+        return table;
+    }
 
     public HashTable() {
         table = new String[SIZE];
