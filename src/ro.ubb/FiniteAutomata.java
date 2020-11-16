@@ -42,7 +42,24 @@ public class FiniteAutomata {
         transitionFunctionsDelta = new ArrayList<>();
     }
 
-    public boolean verifySequence(){
+    public boolean verifySequence(String sequence){
+        String currentState=initialState;
+        int seqCounter = 0;
+        int currentSymbol=0;
+        while(seqCounter<sequence.length()){
+            currentSymbol=Integer.parseInt(String.valueOf(sequence.charAt(seqCounter)));
+            TransitionFunction checkIfExists = new TransitionFunction(currentState,currentSymbol, "");
+            for(TransitionFunction tf : transitionFunctionsDelta){
+                if(checkIfExists.equals(tf)){
+                    currentState=tf.getToState();
+                }
+            }
+            seqCounter++;
+        }
+        return finalStatesF.contains(currentState);
+    }
+
+    public boolean verifyFaValidity(){
         ArrayList<String> states= new ArrayList<>();
         Set<String> finalStates = new HashSet<>();
 

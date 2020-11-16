@@ -42,14 +42,23 @@ public class Main {
 
         FiniteAutomata fa = new FiniteAutomata();
         fa.readInputFile();
-        boolean isValid = fa.verifySequence();
+        boolean isValid = fa.verifyFaValidity();
         System.out.println("Checking validity of DFA...");
         if(!isValid){
-            System.out.println("The FA is NOT valid!");
+            System.out.println("The DFA is NOT valid!");
         }
         else{
-            System.out.println("The FA is valid!");
+            System.out.println("The DFA is valid!");
         }
+
+        isValid=fa.verifySequence("00101");
+        if(!isValid){
+            System.out.println("The sequence is NOT valid!");
+        }
+        else{
+            System.out.println("The sequence is valid!");
+        }
+
         //TRANSITION FUNCTIONS
         System.out.println("===Finite Automata===");
         System.out.print("Q(all states): ");
