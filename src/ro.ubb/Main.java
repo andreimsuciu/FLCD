@@ -24,6 +24,8 @@ public class Main {
                 stString.append(stArray[i]).append("=").append(i).append(", ");
             }
         }
+
+
         stString.append("\nThe data structure for the Symbol Table: \nIt contains a hashtable implemented by me, which contains an array of strings. \n" +
                 "The position in the array signals the token index, all other positions are null. For the hashing function I used the one presented at the course.\n" +
                 "The put method hashes the token, verifies if the position is empty or the token already exists and puts the token there. If it is not empty, it adds 1 to the index and tries again.\n" +
@@ -37,5 +39,27 @@ public class Main {
         else{
             System.out.println(scanner.lexicalErrors);
         }
+
+        FiniteAutomata fa = new FiniteAutomata();
+        fa.readInputFile();
+        boolean isValid = fa.verifySequence();
+        System.out.println("Checking validity of DFA...");
+        if(!isValid){
+            System.out.println("The FA is NOT valid!");
+        }
+        else{
+            System.out.println("The FA is valid!");
+        }
+        //TRANSITION FUNCTIONS
+        System.out.println("===Finite Automata===");
+        System.out.print("Q(all states): ");
+        System.out.println(fa.getFiniteStatesQ());
+        System.out.print("Sigma(input symbols): ");
+        System.out.println(fa.getInputSymbolsSigma());
+        System.out.print("Initial state: ");
+        System.out.println(fa.getInitialSymbol());
+        System.out.print("All transitions: ");
+        System.out.println(fa.getTransitionFunctionsDelta());
     }
+
 }
