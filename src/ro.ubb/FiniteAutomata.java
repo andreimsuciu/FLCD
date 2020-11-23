@@ -58,7 +58,7 @@ public class FiniteAutomata {
         }
         return finalStatesF.contains(currentState);
     }
-
+    //bal
     public boolean verifyFaValidity(){
         ArrayList<String> states= new ArrayList<>();
         Set<String> finalStates = new HashSet<>();
